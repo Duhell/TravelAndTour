@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Travel</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<section class="header">
+		<a href="#" class="logo"><h2>Space Travel</h2></a>
+		<ul>
+			<li><a href="#" class="nav-active">Home</a></li>
+			<li><a href="#about">About</a></li>
+			<li><a href="#destination">Destinations</a></li>
+			<li><a href="#contacts">Contact</a></li>
+			<li><a href="login.html">Login</a></li>
+		</ul>
+	</section>
+	<section class="first-section-bg">
+		<img src="images/p2.jpg" class="fitBg">
+		<div class="content  transition-fade">
+			<h2>Explore Beyond</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat.</p>
+			<a href="#about" class="btn">Learn More</a>
+		</div>
+	</section>
+
+	<section class="about" id="about">
+		<div class="contentBx">
+			<h2 class="titleText">See The Beauty With Your Own Eyes</h2>
+			<p class="text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,<br> sed do eiusmod
+			tempor incididunt ut<br> labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. <br>Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. <br>Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+			<a href="#destination" class="btn">Popular Destinations</a>
+		</div>
+		<div class="imgBx">
+			<img src="images/p6.jpg" class="fitBg">
+		</div>
+	</section>
+
+	<section class="second-section-bg">
+		<img src="images/p5.jpg" class="fitBg">
+	</section>
+
+	<section class="destination" >
+		<div class="conetnt" id="destination">
+			<h2 class="titleText">Most Popular Travel Destinations in the Space</h2>
+			<p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+		<div class="destinationList">
+			<div class="box">
+				<div class="imgBx">
+					<img src="images/p8.jpg" class="fitBg">
+				</div>
+				<div class="content">
+					<h2>Galaxy Name<br><span>Planet Name</span></h2>
+				</div>
+			</div>
+			<div class="box">
+				<div class="imgBx">
+					<img src="images/p9.jpg" class="fitBg">
+				</div>
+				<div class="content">
+					<h2>Galaxy Name<br><span>Planet Name</span></h2>
+				</div>
+			</div>
+			<div class="box">
+				<div class="imgBx">
+					<img src="images/p14.jpg" class="fitBg">
+				</div>
+				<div class="content">
+					<h2>Galaxy Name<br><span>Planet Name</span></h2>
+				</div>
+			</div>
+		</div>
+		<button id="viewMoreBtn">See More Photos</button>
+	</section>
+
+	<section class="third-section-bg">
+		<img src="images/p7.jpg" class="fitBg">
+	</section>
+
+	<section class="footer">
+		<ul class="social-media-accounts">
+			<li><a href="https://www.facebook.com" target="_blank"><img src="images/facebook.png"></a></li>
+			<li><a href="https://www.instagram.com" target="_blank"><img src="images/instagram.png"></a></li>
+			<li><a href="https://www.twitter.com" target="_blank"><img src="images/twitter.png"></a></li>
+			<li><a href="https://www.gmail.com" target="_blank"><img src="images/mail.png"></a></li> 
+		</ul>
+		<h4 id="contacts" class="copyrightText">Copyright  &copy; <script>document.write(new Date().getFullYear())</script> <a href="#">Space Travel</a> All Rights Reserved</h4>
+	</section>
+
+	<!--Villarma,Ryan BETCET SO9-A-->
+
+	<script type="text/javascript" defer>
+
+		//Submitted by Villarma Ryan BETCET SO9-A
+		
+		document.documentElement.scrollTop = 0
+		const btn = document.getElementById('viewMoreBtn')
+		const lightbox = document.createElement('div')
+		lightbox.id = 'lightbox'
+		document.body.appendChild(lightbox)
+			btn.addEventListener('click',()=>{
+		lightbox.classList.add('active')
+		while(lightbox.firstChild){
+			lightbox.removeChild(lightbox.firstChild)
+		}
+		const appendHTML = document.createElement('div')
+		appendHTML.innerHTML = `
+				<div class="slider">
+					<div class="img-box">
+						<img src="images/p8.jpg" class="gallery">
+					</div>
+					<button class="buttons btn1"><</button>
+					<button class="buttons btn2">></button>
+					<button class="exitBTN">X</button>
+				</div>
+			`
+		lightbox.appendChild(appendHTML)
+		const btn1 = appendHTML.querySelector('.btn1')
+		const btn2 = appendHTML.querySelector('.btn2')
+		const exitBTN = appendHTML.querySelector('.exitBTN')
+		btn1.onclick = ()=> prev()
+		btn2.onclick = ()=> next()
+		exitBTN.onclick = ()=> closeAll()
+		let gallery = document.querySelector(".gallery");
+			let images = ['p9.jpg','p2.jpg','1.jpeg','p8.jpg','p5.jpg','p10.jpg', 'p11.jpg','p12.jpg','p13.jpg'];
+			let i = 0;
+			function prev(){
+				if(i <= 0) i = images.length;
+				i--;
+				return setImg();
+			};
+			function next(){
+				if(i >= images.length-1) i = -1;
+				i++;
+				return setImg();
+			}
+			function setImg(){
+				return gallery.setAttribute('src','images/'+images[i]);
+			}
+			function closeAll(){
+				lightbox.classList.remove('active')
+			}
+		})
+
+//Villarma,Ryan BETCET SO9-A
+	</script>
+
+
+</body>
+</html>
